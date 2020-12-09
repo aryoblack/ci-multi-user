@@ -14,7 +14,7 @@
     <tbody>
       <?php foreach ($data_submenu as $row) {?>
         <tr>
-          <td><?=$row->nama_submenu?></td>
+          <td><?=$row->nama_menu.' -> '.$row->nama_submenu?></td>
           <td>
             <?php if ($row->view_level=="Y") {?>
               <div  onClick="vchecked('<?=$row->id?>','<?=$row->id_level?>')">

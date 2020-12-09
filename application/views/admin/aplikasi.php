@@ -258,9 +258,9 @@ var loadFile = function(event) {
             </div>
           </div>
           <div class="form-group row ">
-            <label for="nama_owner" class="col-sm-3 col-form-label">Nama PT</label>
+            <label for="nama_owner" class="col-sm-3 col-form-label">Nama Owner</label>
             <div class="col-sm-9 kosong">
-              <input type="text" class="form-control"  name="nama_owner" id="nama_owner" placeholder="Nama PT" >
+              <input type="text" class="form-control"  name="nama_owner" id="nama_owner" placeholder="Nama Owner" >
               <span class="help-block"></span>
             </div>
           </div>

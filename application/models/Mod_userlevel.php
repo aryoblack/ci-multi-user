@@ -178,8 +178,11 @@ class Mod_userlevel extends CI_Model {
 
     function akses_submenu($id)
     {   
+        $this->db->select("a.*,b.nama_submenu,c.nama_menu");
         $this->db->join('tbl_submenu b','a.id_submenu=b.id_submenu');
-        $this->db->where('id_level',$id);
+        $this->db->join('tbl_menu c','b.id_menu=c.id_menu');
+        $this->db->where('a.id_level',$id);
+        $this->db->group_by('a.id_submenu');
         return $this->db->get('tbl_akses_submenu a');
     }
 
