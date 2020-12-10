@@ -1,14 +1,4 @@
-<?php 
 
-$apl = $this->db->get("aplikasi")->row();
-?>
-<footer class="main-footer navbar-default">
-<strong>Copyright &copy; <?php echo $apl->tahun; ?> <a href="#"><?php  echo $apl->nama_owner; ?></a>.</strong>
-All rights reserved.
-<div class="float-right d-none d-sm-inline-block">
-  <b>Version</b> <?php echo $apl->versi; ?>
-</div>
-</footer>
 <!-- jQuery -->
 <script src="<?php echo base_url();?>assets/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -49,3 +39,9 @@ All rights reserved.
 <script src="<?php echo base_url();?>assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+<!-- SweetAlert2 -->
+<script src="<?php echo base_url();?>assets/plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- Toastr -->
+<script src="<?php echo base_url();?>assets/plugins/toastr/toastr.min.js"></script>
+
