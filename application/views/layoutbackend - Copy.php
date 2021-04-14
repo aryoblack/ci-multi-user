@@ -33,6 +33,7 @@ $this->load->view('templates/menu');
     <!-- Main content -->
     <!-- <section class="content"> -->
       <div class="container-fluid">
+      	<?php $this->load->view('templates/footer') ?>
       	<?php echo $contents; ?>
     </div>
     <!-- </section> -->

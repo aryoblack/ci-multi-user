@@ -7,6 +7,7 @@ class MY_Controller extends CI_Controller{
     {
         parent::__construct();
         if($this->session->userdata['username'] == '') {redirect('login/logout');}
+        
     }
 
 

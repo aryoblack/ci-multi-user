@@ -12,21 +12,27 @@ class Login extends CI_Controller {
 
     public function index()
     {
-        $aplikasi['aplikasi'] = $this->Mod_login->Aplikasi()->row();
-        $this->load->view('admin/login_data',$aplikasi);
+        $logged_in = $this->session->userdata('logged_in');
+        if ($logged_in==TRUE) {
+            redirect('dashboard');
+        }else{
+            $aplikasi['aplikasi'] = $this->Mod_login->Aplikasi()->row();
+            $this->load->view('admin/login_data',$aplikasi);
+        }
     }//end function index
 
     function login()
     {
+        
         $this->_validate();
         //cek username database
         $username = anti_injection($this->input->post('username'));
-        
+
         if($this->Mod_login->check_db($username)->num_rows()==1) {
             $db = $this->Mod_login->check_db($username)->row();
             $apl = $this->Mod_login->Aplikasi()->row();
-            
-             if(hash_verified(anti_injection($this->input->post('password')), $db->password)) {
+
+            if(hash_verified(anti_injection($this->input->post('password')), $db->password)) {
             //cek username dan password yg ada di database
                 $userdata = array(
                     'id_user'  => $db->id_user,
@@ -39,13 +45,14 @@ class Login extends CI_Controller {
                     'logo'        => $apl->logo,
                     'nama_owner'     => $apl->nama_owner,
                     'image'       => $db->image,
+                    'logged_in'    => TRUE
                 );
 
-                    $this->session->set_userdata($userdata);
-                    $data['status'] = TRUE;
-                    echo json_encode($data);
+                $this->session->set_userdata($userdata);
+                $data['status'] = TRUE;
+                echo json_encode($data);
             }else{
-                
+
                 $data['pesan'] = "Username atau Password Salah!";
                 $data['error'] = TRUE;
                 echo json_encode($data);
@@ -55,11 +62,15 @@ class Login extends CI_Controller {
             $data['error'] = TRUE;
             echo json_encode($data);
         }
+        
     }
 
     public function logout()
     {
         $this->session->sess_destroy();
+        $this->load->driver('cache');
+        $this->cache->clean();
+        ob_clean();
         redirect('login');
     }
 

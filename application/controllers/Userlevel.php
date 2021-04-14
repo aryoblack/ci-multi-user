@@ -12,12 +12,13 @@ class Userlevel extends MY_Controller
 	{
 		parent::__construct();
         $this->load->model('Mod_userlevel');
+        $this->load->helper('url');
         // $this->load->database();
 	}
 
 	public function index()
 	{
-		// $this->load->helper('url');
+		// 
         $data['user_level'] = $this->Mod_userlevel->getAll();
         $this->template->load('layoutbackend', 'admin/user_level', $data);
 	}
@@ -161,8 +162,8 @@ class Userlevel extends MY_Controller
     {
             $id = $this->input->post('id');
             $data['data_menu'] = $this->Mod_userlevel->view_akses_menu($id)->result();
+            $data['data_submenu'] = $this->Mod_userlevel->akses_submenu($id)->result();
             $this->load->view('admin/view_akses_menu', $data);
-        
     }
 
     public function update_akses()
@@ -193,7 +194,6 @@ class Userlevel extends MY_Controller
     {
         $chek =$this->input->post('chek');
         $id =$this->input->post('id');
-        var_dump($id);
         if ($chek=='checked') {
             $data = array(
                 'view_level' => 'N'

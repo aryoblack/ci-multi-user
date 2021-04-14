@@ -7,11 +7,20 @@ class Dashboard extends MY_Controller {
     {
         parent::__construct();
         $this->load->library('fungsi');
+        $this->load->library('user_agent');
+        $this->load->helper('myfunction_helper');
+        // backButtonHandle();
     }
 
     function index()
     {
-        $this->template->load('layoutbackend','dashboard/dashboard_data');
+    	$logged_in = $this->session->userdata('logged_in');
+        if ($logged_in != TRUE || empty($logged_in)) {
+            redirect('login');
+        }else{
+        	$this->template->load('layoutbackend','dashboard/dashboard_data');
+        }
+        
     }
 
 }

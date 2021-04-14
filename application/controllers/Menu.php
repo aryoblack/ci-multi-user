@@ -14,7 +14,7 @@ class Menu extends MY_Controller {
 
     public function index()
     {
-        $this->load->helper('url');
+        // $this->load->helper('url');
         $this->template->load('layoutbackend','admin/menu_data');
     }
 
