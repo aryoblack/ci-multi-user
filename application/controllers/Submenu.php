@@ -83,13 +83,14 @@ public function insert()
     'is_active' => $this->input->post('is_active')
 );
  $this->Mod_submenu->insertsubmenu("tbl_submenu", $save);
- $nama_submenu = $this->input->post('nama_submenu');
- $get_id= $this->Mod_submenu->get_by_nama($nama_submenu);
+ $insert_id = $this->db->insert_id();
+ /*$nama_submenu = $this->input->post('nama_submenu');
+ $get_id= $this->Mod_submenu->get_by_nama($nama_submenu);*/
  $id_level = $this->session->userdata['id_level'];
  $levels = $this->Mod_userlevel->getAll()->result();
  foreach ($levels as $row) {
     $data = array(
-        'id_submenu' => $get_id->id_submenu,
+        'id_submenu' => $insert_id,
         'id_level'   => $row->id_level,
     );
     $this->Mod_submenu->insert_akses_submenu("tbl_akses_submenu",$data);
