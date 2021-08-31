@@ -6,6 +6,7 @@ CARA INSTALASI MULTI USER CI (di buat oleh ARYO)
 3. Copy seluruh folder yang sudah di download ke folder htdocs.
 4. Ketik di browser anda dengan perintah localhost/namaproject anda
 ======================================================================
+USER LOGIN
 username = admin
 password = adminmintaakses
 
@@ -15,8 +16,8 @@ Dukung Channel youtube saya
 Dan Jangan lupa disubscribe, like dan share
 
 ======================================================================
-# Jika Anda membutuhkan jasa pembuatan aplikasi berbasis Web dan Android
-Hubungi 0812-9936-9059
+# Jika Anda membutuhkan jasa pembuatan aplikasi berbasis Web
+Hubungi 0858-9034-4288
 
      Semoga bermanfaat!!
 ======================================================================
